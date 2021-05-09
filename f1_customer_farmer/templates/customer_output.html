@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+{% for farmer in farmers %}
+    <br>----------------------------------<br>
+
+    <h1>ID :  {{farmer.id}}<br>
+    Name :  {{farmer.Name}}<br>
+    Phone Number :  {{farmer.Phone_Number}}<br>
+    Town :  {{farmer.City}}<br>
+    Item :  {{farmer.Item}}<br>
+    O/I : {{farmer.Organic_Inorganic}} <br>
+    Cost :  {{farmer.Price}}<br>
+    PinCode :  {{farmer.PinCode}}<br>
+    Distance : {{farmer.Target}} Km.</h1>  
+{% endfor %}
+
+<form method="POST" action="{% url 'get_location' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Get Location of NEAREST farmer </button>
+</form>
+
+{% endblock %}
+

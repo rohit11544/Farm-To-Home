@@ -1,0 +1,70 @@
+{% extends 'base.html' %} 
+{% load widget_tweaks %}
+{% block content %}
+      
+{% for farmer in farmers %}
+<br>----------------------------------<br>
+
+<h1>ID :  {{farmer.id}}<br>
+Name :  {{farmer.Name}}<br>
+Phone Number :  {{farmer.Phone_Number}}<br>
+City :  {{farmer.City}}<br>
+PinCode :  {{farmer.PinCode}}<br>
+Item :  {{farmer.Item}}<br>
+O/I : {{farmer.Organic_Inorganic}} <br></h1>
+
+{% endfor %}
+
+
+<div class="col-md-12">
+   <div class="contact">
+      <form method="POST" action="{% url 'update_farmer_info' %}">
+      {% csrf_token %}
+         <div class="row">
+            <div class="col-sm-12">
+               {% render_field form.GivenUserNum class="contactus" placeholder="Enter the above id (DONT CHANGE THE ID)" %}
+            </div>
+
+            <div class="col-sm-12">
+               {% render_field form.Name class="contactus" placeholder="Enter the new Name" %}
+            </div>
+
+            <div class="col-sm-12">
+               <input type="int" class="contactus"  aria-describedby="emailHelp"
+               placeholder="Phone_Number" name="Phone_Number">
+            </div>
+
+            <div class="col-sm-12">
+               {% render_field form.Item class="contactus" placeholder="Enter the new Item" %}
+            </div>
+
+            <div class="col-sm-12">
+               {% render_field form.City class="contactus" placeholder="Enter the new City" %}
+            </div>
+
+            <div class="col-sm-12">
+               {% render_field form.PinCode class="contactus" placeholder="Enter the new PinCode" %}
+            </div>
+
+            <div class="col-sm-12">
+               {% render_field form.Organic_Inorganic class="contactus" placeholder="Enter the new Organic_Inorganic" %}
+            </div>
+
+            <div class="col-sm-12">
+               {% render_field form.Quantity class="contactus" placeholder="Enter the new Quantity" %}
+            </div>
+
+            <div class="col-sm-12">
+               {% render_field form.Availability class="contactus" placeholder="Enter the new Availability" %}
+            </div>
+
+            <div class="col-sm-12">
+               <button class="send">Conform Update</button>
+            </div>
+         </div>
+      </form>
+   </div>
+</div>
+
+
+{% endblock %}

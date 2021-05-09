@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1>Hello everyone!!</h1>
+<form method="POST" action="{% url 'check' %}">
+{% csrf_token %}
+
+<div class="mb-3">
+    <input type="text" class="form-control"  aria-describedby="emailHelp"
+    placeholder="who are you? " name="Name">
+</div>
+
+<button type="submit" class="btn btn-primary">join</button>
+</form>
+
+{% endblock %}

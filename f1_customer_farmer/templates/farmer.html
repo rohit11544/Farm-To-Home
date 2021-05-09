@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+    <h1>join today!</h1>
+    <br><br>
+
+    <form method="POST" action="{% url 'join_farmer' %}">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            {% render_field form.UserName class="form-control" placeholder="UserName" %}
+        </div>
+
+        <div class="mb-3">
+            {% render_field form.Password type="password" class="form-control" placeholder="Password" %}
+        </div>
+
+        <div class="mb-3">
+            {% render_field form.ConformPassword type="password" class="form-control" placeholder="Conform Password" %}
+        </div>
+
+        <div class="mb-3">
+            {% render_field form.Name class="form-control" placeholder="Name" %}
+        </div>
+        
+        <div class="mb-3">
+            <input type="int" class="form-control"  aria-describedby="emailHelp"
+            placeholder="Phone_Number" name="Phone_Number">
+        </div>
+
+        <div class="mb-3">
+            {% render_field form.PinCode class="form-control" placeholder="PinCode" %}
+        </div>
+
+        <div class="mb-3">
+            {% render_field form.Item class="form-control" placeholder="Item" %}
+        </div>
+
+        <div class="mb-3">
+            {% render_field form.Organic_Inorganic class="form-control" placeholder="Organic_Inorganic" %}
+        </div>
+
+        <div class="mb-3">
+            {% render_field form.City class="form-control" placeholder="City" %}
+        </div>
+            
+
+        <div class="mb-3">
+            {% render_field form.Quantity class="form-control" placeholder="Quantity" %}
+        </div>
+        
+        <div class="mb-3">
+            {% render_field form.Availability class="form-control" placeholder="Availability" %}
+        </div>
+
+            
+        <button type="submit" class="btn btn-primary">join</button>
+    </form>
+
+{% endblock %}

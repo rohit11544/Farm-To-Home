@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+      
+{% for farmer in farmers %}
+<br>
+
+<h1>ID :  {{farmer.id}}<br>
+Name :  {{farmer.Name}}<br>
+Phone Number :  {{farmer.Phone_Number}}<br>
+City :  {{farmer.City}}<br>
+City :  {{farmer.PinCode}}<br>
+Item :  {{farmer.Item}}<br>
+O/I : {{farmer.Organic_Inorganic}} <br></h1>>
+
+{% endfor %}
+
+{% endblock %}

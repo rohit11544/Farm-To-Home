@@ -1,0 +1,28 @@
+{% extends 'base.html' %} 
+{% load widget_tweaks %}
+{% block content %}
+
+    <form method="POST" action="{% url 'search_farmer' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            {% render_field form.Town class="form-control" placeholder="Enter your City" %}
+        </div>
+        
+        <div class="mb-3">
+            {% render_field form.Quantity class="form-control" placeholder="Enter Quantity you want" %}
+        </div>
+
+        <div class="mb-3">
+            {% render_field form.Item class="form-control" placeholder="Enter the Item you want" %}
+        </div>
+
+        <div class="mb-3">
+            {% render_field form.PinCode class="form-control" placeholder="Enter the PinCode of your city" %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">search</button>
+    </form>
+
+
+{% endblock %}
+
