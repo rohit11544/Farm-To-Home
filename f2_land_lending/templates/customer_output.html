@@ -1,0 +1,28 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+
+{% for land in lands %}
+    <br>----------------------------------<br>
+
+    <h1>ID :  {{land.id}}<br>
+    Name :  {{land.Name}}<br>
+    Phone Number :  {{land.Phone_Number}}<br>
+    City :  {{land.City}}<br>
+    R_or_S : {{land.R_or_S}}<br>
+    Rent :  {{land.Rent}}<br>
+    Share :  {{land.Share}}<br>
+    Distance : {{land.Target}}<br>
+    
+
+{% endfor %}
+
+<form method="POST" action="{% url 'get_location' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Get Location of NEAREST Owner </button>
+</form>
+
+
+{% endblock %}
+

@@ -1,0 +1,21 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+      
+{% for land in lands %}
+<br>
+
+<h1>ID :  {{land.id}}<br>
+    Name :  {{land.Name}}<br>
+    Phone Number :  {{land.Phone_Number}}<br>
+    City :  {{land.City}}<br>
+    Rent/Share :  {{land.Pin_Code}}<br>
+    Acres :  {{land.Acres}}<br>
+    Rent :  {{land.Rent}}<br>
+    Rent/Share :  {{land.R_or_S}}<br>
+    Availability :  {{land.Availability}}<br>
+</h1>
+
+{% endfor %}
+
+{% endblock %}

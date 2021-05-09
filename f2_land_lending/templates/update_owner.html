@@ -1,0 +1,32 @@
+
+{% extends 'base.html' %} 
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="col-md-12">
+   <div class="contact">
+      <form method="POST" action="{% url 'update_owner' %}">
+      {% csrf_token %}
+         <div class="row">
+            <div class="col-sm-12">
+               {% render_field form.GivenUserNum class="form-control" placeholder="Please enter your User ID" %}
+            </div>
+
+            <div class="col-sm-12">
+               {% render_field form.UserName class="form-control" placeholder="Please enter your User Name" %}
+            </div>
+
+            <div class="col-sm-12">
+               {% render_field form.Password type="password" class="form-control" placeholder="Enter the password" %}
+            </div>
+            <div class="col-sm-12">
+               <input type="submit"value="Get Details" name = "GD" >
+               <input type="submit"value="Forget Password" name = "FP" >
+            </div>
+         </div>
+      </form>
+   </div>
+   </div>
+
+
+{% endblock %}

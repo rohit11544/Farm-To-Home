@@ -1,0 +1,77 @@
+{% extends 'base.html' %} 
+{% load widget_tweaks %}
+{% block content %}
+      
+{% for land in lands %}
+<br>----------------------------------<br>
+
+<h1>ID :  {{land.id}}<br>
+Name :  {{land.Name}}<br>
+Phone Number :  {{land.Phone_Number}}<br>
+City :  {{land.City}}<br>
+Acres :  {{land.Acres}}<br>
+Rent :  {{land.Rent}}<br>
+Rent/Share :  {{land.R_or_S}}<br>
+Availability :  {{land.Availability}}<br>
+
+{% endfor %}
+
+
+<div class="col-md-12">
+<div class="contact">
+<form method="POST" action="{% url 'update_owner_info' %}">
+{% csrf_token %}
+   <div class="row">
+
+     <div class="col-sm-12">
+      {% render_field form.GivenUserNum class="form-control" placeholder="Enter the above id (DONT CHANGE THE ID)" %}
+    </div>
+
+    <div class="col-sm-12">
+      {% render_field form.Name class="form-control" placeholder="Enter the new Name" %}
+    </div>
+
+    <div class="col-sm-12">
+      <input type="int" class="contactus"  aria-describedby="emailHelp"
+      placeholder="Phone_Number" name="Phone_Number">
+   </div>
+
+
+    <div class="col-sm-12">
+      {% render_field form.City class="form-control" placeholder="Enter the new City" %}
+    </div>
+
+    <div class="col-sm-12">
+      {% render_field form.PinCode class="form-control" placeholder="Enter the new PinCode" %}
+    </div>
+
+    <div class="col-sm-12">
+      {% render_field form.Acres class="form-control" placeholder="Enter the new Acres" %}
+    </div>
+
+    <div class="col-sm-12">
+      {% render_field form.Rent class="form-control" placeholder="Enter the new Rent" %}
+    </div>
+
+    <div class="col-sm-12">
+      {% render_field form.Share class="form-control" placeholder="Enter the new Share" %}
+    </div>
+
+    <div class="col-sm-12">
+      {% render_field form.R_or_S class="form-control" placeholder="Enter the new R_or_S" %}
+    </div>
+
+    <div class="col-sm-12">
+      {% render_field form.Availability class="form-control" placeholder="Enter the new Availability" %}
+    </div>
+
+      <div class="col-sm-12">
+         <button class="send">Conform Update</button>
+      </div>
+   </div>
+</form>
+</div>
+</div>
+
+
+{% endblock %}

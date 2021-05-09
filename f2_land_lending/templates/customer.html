@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+{% load widget_tweaks %}
+{% block content %}
+
+<form method="POST" action="{% url 'search_land' %}">
+   {% csrf_token %}
+   <div class="mb-3">
+        {% render_field form.Town class="form-control" placeholder="Enter your City" %}
+    </div>
+   
+   <div class="mb-3">
+        {% render_field form.Acres class="form-control" placeholder="Acres" %}
+   </div>
+   
+   <div class="mb-3">
+        {% render_field form.PinCode class="form-control" placeholder="Enter the PinCode of your city" %}
+    </div>
+   
+   <button type="submit" class="btn btn-primary">search</button>
+   </form>
+
+
+{% endblock %}
+
